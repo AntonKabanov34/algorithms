@@ -4,19 +4,15 @@ result = []
 
 def sort_src(x):
     """Функция сортировки списка. Принимает list возвращает list, сохраняет только те элементы, значения которых больше предыдущего"""
-    flag = 0
-    a = 0
-    b = 1
-    while flag < len(x) - 1:
-        if x[a] >= x[b]:
-            a += 1
-            b += 1
+    index = 0
+    while index < len(x) - 1:
+        if x[index] <= x[index-1]:
+            result.append(x[index + 1])
+            index += 1
         else:
-            result.append(x[b])
-            a += 1
-            b += 1
+            result.append(x[index])
 
-        flag += 1
+        index += 1
 
 
 
@@ -24,8 +20,9 @@ def sort_src(x):
 
 
 sort_src(src)
-print(sort_src(),__doc__)
-print(result)
+print(sort_src.__doc__)
+print(f'Исходник: {src}')
+print(f'Сортировка: {result}\n')
 
 
 
@@ -54,5 +51,7 @@ def src_set(x):
             result.append(i)
 
 
-
-print(src_set(src))
+src_set(src)
+print(src_set.__doc__)
+print(f'Исходник: {src}')
+print(f'Сортировка: {result}')
